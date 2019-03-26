@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS
 CREATE TABLE Users (
   username  VARCHAR(50)   NOT NULL,
   password  VARCHAR(250)  NOT NULL,
+  token     VARCHAR(14)   NOT NULL, /* token format: 1234-1234-1234 */
   CONSTRAINT  pk_username PRIMARY KEY (username)
 );
 

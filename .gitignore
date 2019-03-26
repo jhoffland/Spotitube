@@ -1,5 +1,9 @@
 .idea
 .DS_Store
+API.iml
+
+*.class
+target
 
 # Package Files #
 *.jar
