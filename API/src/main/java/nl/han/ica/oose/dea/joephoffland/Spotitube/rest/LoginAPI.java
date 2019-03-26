@@ -1,10 +1,11 @@
 package nl.han.ica.oose.dea.joephoffland.Spotitube.rest;
 
 import nl.han.ica.oose.dea.joephoffland.Spotitube.dao.IUserDAO;
+import nl.han.ica.oose.dea.joephoffland.Spotitube.exceptions.InternalServerErrorException;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.exceptions.InvalidLoginException;
-import nl.han.ica.oose.dea.joephoffland.Spotitube.rest.dto.ErrorDTO;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.rest.dto.TokenDTO;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.rest.dto.UserDTO;
+import nl.han.ica.oose.dea.joephoffland.Spotitube.rest.utils.ErrorResponse;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -15,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/login")
-public class LoginApi {
+public class LoginAPI {
     @Inject
     private IUserDAO userDAO;
 
@@ -32,10 +33,9 @@ public class LoginApi {
 
             return Response.status(200).entity(tokenDTO).build();
         } catch(InvalidLoginException e) {
-            ErrorDTO errorMessage = new ErrorDTO();
-            errorMessage.status = 401;
-            errorMessage.message = "De combinatie gebruikersnaam en wachtwoord klopt niet.";
-            return Response.status(errorMessage.status).entity(errorMessage).build();
+            return ErrorResponse.get(401, "De combinatie gebruikersnaam en wachtwoord klopt niet.");
+        } catch(InternalServerErrorException e) {
+            return ErrorResponse.get(500, "Er is iets misgegaan op de server, probeer het opnieuw.");
         }
     }
 }

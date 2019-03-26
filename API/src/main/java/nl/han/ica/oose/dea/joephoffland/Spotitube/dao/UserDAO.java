@@ -1,5 +1,6 @@
 package nl.han.ica.oose.dea.joephoffland.Spotitube.dao;
 
+import nl.han.ica.oose.dea.joephoffland.Spotitube.exceptions.InternalServerErrorException;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.exceptions.InvalidLoginException;
 
 import javax.annotation.Resource;
@@ -14,18 +15,21 @@ public class UserDAO implements IUserDAO {
     private DataSource dataSource;
 
     @Override
-    public String login(String user, String password) throws InvalidLoginException {
-        String getTokenSQL = "SELECT token FROM Users WHERE user = ? AND password = ?";
+    public String login(String user, String password) throws InvalidLoginException, InternalServerErrorException {
+        String getTokenSQL = "SELECT token FROM Users WHERE username = ? AND password = ?";
         try {
-            Connection connection = dataSource.getConnection();
+            Connection connection = dataSource.getConnection();;
             PreparedStatement statement = connection.prepareStatement(getTokenSQL);
             statement.setString(1, user);
             statement.setString(2, password);
             ResultSet rs = statement.executeQuery();
-            rs.first();
+
+            while(rs.next()) {
+                return rs.getString("token");
+            }
+            throw new InvalidLoginException();
         } catch(SQLException e) {
-            e.printStackTrace();
+            throw new InternalServerErrorException();
         }
-        return "222";
     }
 }
