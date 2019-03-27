@@ -1,12 +1,40 @@
+DROP TRIGGER IF EXISTS
+  unique_codes_before_update;
+
 DROP TABLE IF EXISTS
   PlaylistTrack, Tracks, Playlists, Users;
 
 CREATE TABLE Users (
+  id        INT           NOT NULL AUTO_INCREMENT,
   username  VARCHAR(50)   NOT NULL,
   password  VARCHAR(250)  NOT NULL,
-  token     VARCHAR(14)   NOT NULL, /* token format: 1234-1234-1234 */
-  CONSTRAINT  pk_username PRIMARY KEY (username)
+  token     VARCHAR(14)   NULL, /* token format: 1234-1234-1234 */
+  CONSTRAINT  pk_userId   PRIMARY KEY (id),
+  CONSTRAINT  ak_username UNIQUE      (username),
+  CONSTRAINT  ak_token    UNIQUE      (token)
 );
+
+DELIMITER //
+CREATE TRIGGER generateRandomToken
+BEFORE INSERT ON Users FOR EACH ROW /* Generate token for User on Insert */
+BEGIN
+  DECLARE ready INT DEFAULT 0;
+  DECLARE generatedToken VARCHAR(14); /* DEFAULT needs to be an empty string, otherwise the checks on LENGTH don't work */
+  WHILE NOT ready DO
+    SET generatedToken := "";
+    WHILE LENGTH(generatedToken) < 14 DO
+      SET generatedToken := CONCAT(generatedToken, LEFT(FLOOR(RAND() * 1000000), 4)); /* RAND() generates a decimal between 0 and 1 */
+      IF LENGTH(generatedToken) < 14 THEN
+        SET generatedToken := CONCAT(generatedToken, "-");
+      END IF;
+    END WHILE;
+    IF (NOT EXISTS(SELECT * FROM Users WHERE token = generatedToken)) AND (LENGTH(generatedToken) = 14) THEN
+      SET NEW.token = generatedToken;
+      SET ready := 1;
+    END IF;
+  END WHILE;
+END//
+DELIMITER ;
 
 CREATE TABLE Playlists (
   id    INT           NOT NULL  AUTO_INCREMENT,
