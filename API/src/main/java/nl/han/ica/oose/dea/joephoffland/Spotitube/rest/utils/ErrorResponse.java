@@ -7,9 +7,13 @@ import javax.ws.rs.core.Response;
 public class ErrorResponse {
     public static Response get(int status, String message) {
         ErrorDTO errorDTO = new ErrorDTO();
-        errorDTO.status = 401;
+        errorDTO.status = status;
         errorDTO.message = message;
 
         return Response.status(status).entity(errorDTO).build();
+    }
+
+    public static Response getPlain(int status, String message) {
+        return Response.status(status).entity(message).build();
     }
 }
