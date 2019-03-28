@@ -2,7 +2,7 @@
 
 Backend gemaakt door Joep Hoffland (HAN601552)
 
-Client aangeleverd door OOSE-DEA - [Github repo](https://github.com/HANICA-DEA/spotitube)
+[Client](https://hanica-dea.github.io/spotitube/) aangeleverd door OOSE-DEA - [GitHub repo](https://github.com/HANICA-DEA/spotitube)
 
 
 ## Programmeeropdracht
