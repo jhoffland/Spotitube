@@ -76,6 +76,14 @@ public class TracksAPI {
 
         return tracksDTO;
     }
+
+    public void setUserDAO(IUserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
+    public void setTrackDAO(IPlaylistTrackDAO trackDAO) {
+        this.trackDAO = trackDAO;
+    }
 }
 
 
