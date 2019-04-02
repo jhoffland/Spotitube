@@ -4,11 +4,11 @@ April 2019
 
 
 ## 1. Omschrijving
-Spotitube is een gezamelijke app van Spotify en YouTube warmee een klant een overzicht kan krijgen van afspeellijsten met daarin audio- en videostreams.
+Spotitube is een gezamenlijke  app van Spotify en YouTube waarmee een klant een overzicht kan krijgen van afspeellijsten met daarin audio- en videostreams.
 
 Voor het vak DEA binnen het OOSE-semester aan de HAN-ICA heb ik de opdracht gekregen om de back-end te ontwikkelen. Deze applicatie moet gebruik maken van *JAX-RS*, *CDI (Context & Dependency injection)*, de *JDBC API* en gedeployed kunnen worden op Apache TomEE Plus. De [client](https://hanica-dea.github.io/spotitube/) (front-end) is aangeleverd door DEA en moet RESTful kunnen communiceren met de back-end volgens de [REST API specificatie](https://github.com/HANICA-DEA/spotitube#api).
 
-De applicatie heb ik gerealiseerd op basis van de causbeschrijving, waarbij ik gebruik heb gemaakt van een *Data access layer*, het *Domain layer pattern* en het *Remote Facade pattern*. Daarnaast wordt 100% van de code via *Unittests* getest en is dit document een toelichting van de applicatie.
+De applicatie heb ik gerealiseerd op basis van de casusbeschrijving, waarbij ik gebruik heb gemaakt van een *Data access layer*, het *Domain layer pattern* en het *Remote Facade pattern*. Daarnaast wordt 100% van de code via *Unittests* getest en is dit document een toelichting op de applicatie.
 
 
 ## 2. Package diagram
@@ -34,5 +34,5 @@ Elke DAO implementeert een interface. Deze interface wordt ook in de `rest.endpo
 ### 4.1 DataSource i.p.v. DriverManager
 Ik heb ervoor gekozen om gebruik te maken van DataSource in plaats van DriverManager om de databaseconnectie op te bouwen, omdat TomEE de databaseconnecties maakt en sluit en de databasgegevens ook opgeslagen worden in de serverconfiguratie.
 
-### 4.2 Datachecks
-Ik heb ervoor gekozen om de controle op de data dat door de client wordt ingestuurd te doen in de endpoints. Het is mogelijk om aan de `SQLException` te herkennen dat de gegevens die je op probeert te slaan niet geldig zijn. Een voorbeeld van een ongeldig gegeven is een te lange naam van een afspeellijst. Door direct in de endpoints te controleren of de gegevens geldig zijn, kan ik een betere foutmelding als HTTP-response teruggeven. Het nadeel hiervan is wel dat je het verstand van de databasesstructuur eigenlijk ook bij de database wil houden.
+### 4.2 Validatie
+Ik heb ervoor gekozen om de controle op de data dat door de client wordt ingestuurd te doen in de endpoints. Het is mogelijk om aan de `SQLException` te herkennen dat de gegevens die je op probeert te slaan niet geldig zijn. Een voorbeeld van een ongeldig gegeven is een te lange naam van een afspeellijst. Door direct in de endpoints te controleren of de gegevens geldig zijn, kan er een betere foutmelding als HTTP-response terug worden gegeven. Het nadeel hiervan is wel dat je het verstand van de databasesstructuur eigenlijk ook bij de database wil houden.
