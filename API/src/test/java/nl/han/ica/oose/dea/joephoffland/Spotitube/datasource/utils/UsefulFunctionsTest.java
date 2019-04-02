@@ -27,7 +27,7 @@ public class UsefulFunctionsTest {
             assertEquals(false, hasColumn);
 
             when(resultSetMetaData.getColumnCount()).thenReturn(1);
-            when(resultSetMetaData.getColumnName(0)).thenReturn(columnName);
+            when(resultSetMetaData.getColumnName(1)).thenReturn(columnName);
 
             hasColumn = UsefulFunctions.hasColumn(resultSet, columnName);
             assertEquals(true, hasColumn);

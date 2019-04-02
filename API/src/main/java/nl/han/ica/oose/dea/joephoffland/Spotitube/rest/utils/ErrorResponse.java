@@ -12,8 +12,4 @@ public class ErrorResponse {
 
         return Response.status(status).entity(errorDTO).build();
     }
-
-    public static Response getPlain(int status, String message) {
-        return Response.status(status).entity(message).build();
-    }
 }
