@@ -1,9 +1,8 @@
 package nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.user;
 
+import nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.GlobalDAO;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.exceptions.InternalServerErrorException;
 
-import javax.annotation.Resource;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,10 +10,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class UserDAO implements IUserDAO {
-    @Resource(name = "jdbc/MySQL/Spotitube")
-    protected DataSource dataSource;
-
+public class UserDAO extends GlobalDAO implements IUserDAO {
     private Logger logger = Logger.getLogger(getClass().getName());
 
     @Override

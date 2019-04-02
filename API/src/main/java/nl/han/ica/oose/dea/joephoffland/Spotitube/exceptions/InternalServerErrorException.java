@@ -4,8 +4,4 @@ public class InternalServerErrorException extends Exception {
     public InternalServerErrorException() {
         super("Something went wrong on the server.");
     }
-
-    public InternalServerErrorException(String message) {
-        super(message);
-    }
 }

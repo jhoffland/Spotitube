@@ -34,14 +34,6 @@ public class Playlist {
         this.owner = owner;
     }
 
-    public List<Track> getTracks() {
-        return tracks;
-    }
-
-    public void setTracks(List<Track> tracks) {
-        this.tracks = tracks;
-    }
-
     public int getTotalDuration() {
         return totalDuration;
     }

@@ -39,4 +39,8 @@ public class LoginAPI {
             return ErrorResponse.get(500, "Er is iets misgegaan op de server, probeer het opnieuw.");
         }
     }
+
+    public void setUserDAO(IUserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 }

@@ -1,11 +1,10 @@
 package nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.playlistTrack;
 
+import nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.GlobalDAO;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.utils.UsefulFunctions;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.domain.Track;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.exceptions.InternalServerErrorException;
 
-import javax.annotation.Resource;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,10 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class PlaylistTrackDAO implements IPlaylistTrackDAO {
-    @Resource(name = "jdbc/MySQL/Spotitube")
-    private DataSource dataSource;
-
+public class PlaylistTrackDAO extends GlobalDAO implements IPlaylistTrackDAO {
     private Logger logger = Logger.getLogger(getClass().getName());
 
     @Override
@@ -120,7 +116,7 @@ public class PlaylistTrackDAO implements IPlaylistTrackDAO {
         }
     }
 
-    private List<Track> resultSetToTrackDAOList(ResultSet rsTracks) throws SQLException {
+    public List<Track> resultSetToTrackDAOList(ResultSet rsTracks) throws SQLException {
         List<Track> tracks = new ArrayList<>();
 
         while (rsTracks.next()) {

@@ -4,6 +4,8 @@ package nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.playlistTrack;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.domain.Track;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.exceptions.InternalServerErrorException;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface IPlaylistTrackDAO {

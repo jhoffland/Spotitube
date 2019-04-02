@@ -1,20 +1,16 @@
 package nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.playlist;
 
+import nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.GlobalDAO;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.domain.Playlist;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.exceptions.InternalServerErrorException;
 
-import javax.annotation.Resource;
-import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class PlaylistDAO implements IPlaylistDAO {
-    @Resource(name = "jdbc/MySQL/Spotitube")
-    private DataSource dataSource;
-
+public class PlaylistDAO extends GlobalDAO implements IPlaylistDAO {
     private Logger logger = Logger.getLogger(getClass().getName());
 
     @Override

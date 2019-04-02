@@ -139,6 +139,18 @@ public class PlaylistsTracksAPI {
     private TracksDTO tracksInPlaylistAsDTO(int playlistId) throws InternalServerErrorException {
         return tracksDTO(trackDAO.getTracksForPlaylist(playlistId));
     }
+
+    public void setUserDAO(IUserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
+    public void setTrackDAO(IPlaylistTrackDAO trackDAO) {
+        this.trackDAO = trackDAO;
+    }
+
+    public void setPlaylistDAO(IPlaylistDAO playlistDAO) {
+        this.playlistDAO = playlistDAO;
+    }
 }
 
 

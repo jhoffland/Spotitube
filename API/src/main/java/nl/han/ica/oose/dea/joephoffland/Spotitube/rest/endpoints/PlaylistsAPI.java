@@ -146,7 +146,7 @@ public class PlaylistsAPI {
         }
     }
 
-    private PlaylistsDTO playlistsDTO(int userId) throws InternalServerErrorException {
+    public PlaylistsDTO playlistsDTO(int userId) throws InternalServerErrorException {
         List<Playlist> playlists = playlistDAO.getPlaylists(userId);
 
         PlaylistsDTO playlistsDTO = new PlaylistsDTO();
@@ -165,5 +165,13 @@ public class PlaylistsAPI {
         playlistsDTO.length = totalDuration;
 
         return playlistsDTO;
+    }
+
+    public void setPlaylistDAO(IPlaylistDAO playlistDAO) {
+        this.playlistDAO = playlistDAO;
+    }
+
+    public void setUserDAO(IUserDAO userDAO) {
+        this.userDAO = userDAO;
     }
 }

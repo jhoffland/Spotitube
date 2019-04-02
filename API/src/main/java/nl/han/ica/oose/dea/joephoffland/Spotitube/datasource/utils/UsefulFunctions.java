@@ -8,7 +8,7 @@ public class UsefulFunctions {
     public static boolean hasColumn(ResultSet resultSet, String columnName) throws SQLException {
         ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
         int columnCount = resultSetMetaData.getColumnCount();
-        for (int currentColumn = 1; currentColumn <= columnCount; currentColumn++) {
+        for (int currentColumn = 0; currentColumn < columnCount; currentColumn++) {
             if (columnName.equals(resultSetMetaData.getColumnName(currentColumn)))
                 return true;
         }
