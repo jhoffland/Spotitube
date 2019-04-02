@@ -1,5 +1,6 @@
 # Spotitube
-*Door Joep Hoffland (HAN601552)*
+Joep Hoffland (HAN601552)<br />
+April 2019
 
 
 ## 1. Omschrijving
@@ -27,3 +28,11 @@ Elke DAO implementeert een interface. Deze interface wordt ook in de `rest.endpo
 
 ## 3. Deployment diagram
 ![Deployment diagram Spotitube](https://raw.githubusercontent.com/joephoffland/Spotitube/master/Documentatie/Deployment%20Diagram%20Spotitube.png?token=AgYwFfz9Y415ZhCtQZCeeKc_34S3fz94ks5crLChwA%3D%3D)
+
+## 4. Ontwerpkeuzes
+
+### 4.1 DataSource i.p.v. DriverManager
+Ik heb ervoor gekozen om gebruik te maken van DataSource in plaats van DriverManager om de databaseconnectie op te bouwen, omdat TomEE de databaseconnecties maakt en sluit en de databasgegevens ook opgeslagen worden in de serverconfiguratie.
+
+### 4.2 Datachecks
+Ik heb ervoor gekozen om de controle op de data dat door de client wordt ingestuurd te doen in de endpoints. Het is mogelijk om aan de `SQLException` te herkennen dat de gegevens die je op probeert te slaan niet geldig zijn. Een voorbeeld van een ongeldig gegeven is een te lange naam van een afspeellijst. Door direct in de endpoints te controleren of de gegevens geldig zijn, kan ik een betere foutmelding als HTTP-response teruggeven. Het nadeel hiervan is wel dat je het verstand van de databasesstructuur eigenlijk ook bij de database wil houden.
