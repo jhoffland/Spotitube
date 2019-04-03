@@ -26,8 +26,18 @@ Door gebruik te maken van Dependency injection worden de dependencies door de co
 #### 2.1.3 Open Closed principle (OCP) - SOLID
 Elke DAO implementeert een interface. Deze interface wordt ook in de `rest.endpoints` gebruikt om het type object aan te geven.
 
+
 ## 3. Deployment diagram
 ![Deployment diagram Spotitube](https://raw.githubusercontent.com/joephoffland/Spotitube/master/Documentatie/Deployment%20Diagram%20Spotitube.png?token=AgYwFfz9Y415ZhCtQZCeeKc_34S3fz94ks5crLChwA%3D%3D)
+
+### 3.1 Toelichting
+
+#### 3.1.1 RESTful, JAX-RS en TomEE
+De aangeleverde client communiceert RESTful met de back-end. De applicatie maakt gebruik van JAX-RS en wordt gedeployed op een TomEE Plus.  
+
+#### 3.1.2 JDBC API
+De applicatie maakt gebruik van de JDBC API om te communiceren met de SQL database. De databaseconnectie wordt gemaakt door TomEE en de databasegegevens worden zijn ook in de serverconfiguratie opgeslagen.
+
 
 ## 4. Ontwerpkeuzes
 
