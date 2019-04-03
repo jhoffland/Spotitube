@@ -36,3 +36,6 @@ Ik heb ervoor gekozen om gebruik te maken van DataSource in plaats van DriverMan
 
 ### 4.2 Validatie
 Ik heb ervoor gekozen om de controle op de data dat door de client wordt ingestuurd te doen in de endpoints. Het is mogelijk om aan de `SQLException` te herkennen dat de gegevens die je op probeert te slaan niet geldig zijn. Een voorbeeld van een ongeldig gegeven is een te lange naam van een afspeellijst. Door direct in de endpoints te controleren of de gegevens geldig zijn, kan er een betere foutmelding als HTTP-response terug worden gegeven. Het nadeel hiervan is wel dat je het verstand van de databasesstructuur eigenlijk ook bij de database wil houden.
+
+### 4.3 Genereren token
+Ik heb ervoor gekozen om het authenticatietoken te laten genereren door de database. De inloggegevens worden eerst gecontroleerd door de applicatie. Vervolgens wordt er een SQL `procedure` uitgevoerd, waarbij het token gegenereerd en geretourneerd wordt.
