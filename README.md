@@ -3,7 +3,7 @@ Joep Hoffland (HAN601552)<br />
 April 2019
 
 
-## 1. Omschrijving
+## 1 Omschrijving
 Spotitube is een gezamenlijke  app van Spotify en YouTube waarmee een klant een overzicht kan krijgen van afspeellijsten met daarin audio- en videostreams.
 
 Voor het vak DEA binnen het OOSE-semester aan de HAN-ICA heb ik de opdracht gekregen om de back-end te ontwikkelen. Deze applicatie moet gebruik maken van *JAX-RS*, *CDI (Context & Dependency injection)*, de *JDBC API* en gedeployed kunnen worden op Apache TomEE Plus. De [client](https://hanica-dea.github.io/spotitube/) (front-end) is aangeleverd door DEA en moet RESTful kunnen communiceren met de back-end volgens de [REST API specificatie](https://github.com/HANICA-DEA/spotitube#api).
@@ -11,7 +11,7 @@ Voor het vak DEA binnen het OOSE-semester aan de HAN-ICA heb ik de opdracht gekr
 De applicatie heb ik gerealiseerd op basis van de casusbeschrijving, waarbij ik gebruik heb gemaakt van een *Data access layer*, het *Domain layer pattern* en het *Remote Facade pattern*. Daarnaast wordt 100% van de code via *Unittests* getest en is dit document een toelichting op de applicatie.
 
 
-## 2. Package diagram
+## 2 Package diagram
 ![Package diagram Spotitube](https://raw.githubusercontent.com/joephoffland/Spotitube/master/Documentatie/Package%20diagram%20Spotitube.png?token=AgYwFc2mIiyYNgh6LUKzXVM6yzz30HYVks5crLDmwA%3D%3D)
 
 ### 2.1 Toelichting
@@ -27,7 +27,7 @@ Door gebruik te maken van Dependency injection worden de dependencies door de co
 Elke DAO implementeert een interface. Deze interface wordt ook in de `rest.endpoints` gebruikt om het type object aan te geven.
 
 
-## 3. Deployment diagram
+## 3 Deployment diagram
 ![Deployment diagram Spotitube](https://raw.githubusercontent.com/joephoffland/Spotitube/master/Documentatie/Deployment%20Diagram%20Spotitube.png?token=AgYwFfz9Y415ZhCtQZCeeKc_34S3fz94ks5crLChwA%3D%3D)
 
 ### 3.1 Toelichting
@@ -39,7 +39,7 @@ De aangeleverde client communiceert RESTful met de back-end. De applicatie maakt
 De applicatie maakt gebruik van de JDBC API om te communiceren met de SQL database. De databaseconnectie wordt gemaakt door TomEE en de databasegegevens worden zijn ook in de serverconfiguratie opgeslagen.
 
 
-## 4. Ontwerpkeuzes
+## 4 Ontwerpkeuzes
 
 ### 4.1 DataSource i.p.v. DriverManager
 Ik heb ervoor gekozen om gebruik te maken van DataSource in plaats van DriverManager om de databaseconnectie op te bouwen, omdat TomEE de databaseconnecties maakt en sluit en de databasgegevens ook opgeslagen worden in de serverconfiguratie.
