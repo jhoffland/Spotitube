@@ -12,7 +12,7 @@ De applicatie heb ik gerealiseerd op basis van de casusbeschrijving, waarbij ik 
 
 
 ## 2 Package diagram
-![Package diagram Spotitube](https://raw.githubusercontent.com/joephoffland/Spotitube/master/Documentatie/Package%20diagram%20Spotitube.png?token=AgYwFc2mIiyYNgh6LUKzXVM6yzz30HYVks5crLDmwA%3D%3D)
+![Package diagram Spotitube](Documentatie/Package%20diagram%20Spotitube.png)
 
 ### 2.1 Toelichting
 
@@ -28,7 +28,7 @@ Elke DAO implementeert een interface. Deze interface wordt ook in de `rest.endpo
 
 
 ## 3 Deployment diagram
-![Deployment diagram Spotitube](https://raw.githubusercontent.com/joephoffland/Spotitube/master/Documentatie/Deployment%20Diagram%20Spotitube.png?token=AgYwFfz9Y415ZhCtQZCeeKc_34S3fz94ks5crLChwA%3D%3D)
+![Deployment diagram Spotitube](Documentatie/Deployment%20Diagram%20Spotitube.png)
 
 ### 3.1 Toelichting
 
