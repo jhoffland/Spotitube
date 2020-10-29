@@ -6,7 +6,6 @@ import com.mongodb.MongoClientURI;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.MongoDBConfig;
 
 import javax.annotation.Resource;
-import java.net.UnknownHostException;
 
 public class GlobalMongoDBDAO {
     @Resource(name = "MongoDBConfig")

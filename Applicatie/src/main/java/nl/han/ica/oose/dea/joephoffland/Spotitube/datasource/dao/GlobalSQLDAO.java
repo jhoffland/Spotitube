@@ -5,7 +5,7 @@ import javax.sql.DataSource;
 
 public class GlobalSQLDAO {
     @Resource(name = "jdbc/MySQL/Spotitube")
-protected DataSource dataSource;
+    protected DataSource dataSource;
 
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;

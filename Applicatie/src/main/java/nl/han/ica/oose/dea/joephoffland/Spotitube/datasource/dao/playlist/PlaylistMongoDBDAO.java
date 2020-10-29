@@ -18,7 +18,7 @@ import static com.mongodb.client.model.Aggregates.*;
 @Default
 public class PlaylistMongoDBDAO extends GlobalMongoDBDAO implements IPlaylistDAO {
     @Override
-    public List<Playlist> getPlaylists(int userId) throws InternalServerErrorException {
+    public List<Playlist> getPlaylists(int userId) {
         DBCollection playlistsCollection = getDatabase().getCollection("playlists");
 
         Iterable<DBObject> mongoPlaylists = playlistsCollection.aggregate((DBObject) Arrays.asList(
@@ -47,7 +47,7 @@ public class PlaylistMongoDBDAO extends GlobalMongoDBDAO implements IPlaylistDAO
 
 
     @Override
-    public void addPlaylist(String name, int userId) throws InternalServerErrorException {
+    public void addPlaylist(String name, int userId) {
         DBCollection playlistsCollection = getDatabase().getCollection("playlists");
 
         Cursor lastPlaylistCursor = playlistsCollection.find().sort(new BasicDBObject("_id", 1)).limit(1);
@@ -65,17 +65,17 @@ public class PlaylistMongoDBDAO extends GlobalMongoDBDAO implements IPlaylistDAO
     }
 
     @Override
-    public int checkOwnershipAndExistens(int playlistId, int userId) throws InternalServerErrorException {
+    public int checkOwnershipAndExistens(int playlistId, int userId) {
         return 0;
     }
 
     @Override
-    public void deletePlaylist(int playlistId) throws InternalServerErrorException {
+    public void deletePlaylist(int playlistId) {
 
     }
 
     @Override
-    public void editPlaylist(String name, int playlistId) throws InternalServerErrorException {
+    public void editPlaylist(String name, int playlistId) {
 
     }
 }
