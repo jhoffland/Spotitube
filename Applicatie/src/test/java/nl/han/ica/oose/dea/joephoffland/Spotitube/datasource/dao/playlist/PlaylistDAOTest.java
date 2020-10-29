@@ -15,11 +15,11 @@ import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.verify;
 
 public class PlaylistDAOTest extends DAOTestSetup {
-    PlaylistDAO playlistDAO;
+    PlaylistSQLDAO playlistDAO;
 
     @Before
     public void playlistSetUp() {
-        playlistDAO = new PlaylistDAO();
+        playlistDAO = new PlaylistSQLDAO();
         playlistDAO.setDataSource(dataSource);
     }
 

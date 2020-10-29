@@ -14,11 +14,11 @@ import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 
 public class UserDAOTest extends DAOTestSetup {
-    UserDAO userDAO;
+    UserSQLDAO userDAO;
 
     @Before
     public void userSetUp()  {
-        userDAO = new UserDAO();
+        userDAO = new UserSQLDAO();
         userDAO.setDataSource(dataSource);
     }
 

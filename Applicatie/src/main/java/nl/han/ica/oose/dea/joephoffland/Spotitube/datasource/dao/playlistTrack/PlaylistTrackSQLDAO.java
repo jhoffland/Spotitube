@@ -1,6 +1,6 @@
 package nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.playlistTrack;
 
-import nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.GlobalDAO;
+import nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.GlobalSQLDAO;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.utils.UsefulFunctions;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.domain.Track;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.exceptions.InternalServerErrorException;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class PlaylistTrackDAO extends GlobalDAO implements IPlaylistTrackDAO {
+public class PlaylistTrackSQLDAO extends GlobalSQLDAO implements IPlaylistTrackDAO {
     private Logger logger = Logger.getLogger(getClass().getName());
 
     @Override

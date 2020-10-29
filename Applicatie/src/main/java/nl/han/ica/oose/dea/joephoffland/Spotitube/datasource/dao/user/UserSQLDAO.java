@@ -1,6 +1,6 @@
 package nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.user;
 
-import nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.GlobalDAO;
+import nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.GlobalSQLDAO;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.exceptions.InternalServerErrorException;
 
 import java.sql.Connection;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class UserDAO extends GlobalDAO implements IUserDAO {
+public class UserSQLDAO extends GlobalSQLDAO implements IUserDAO {
     private Logger logger = Logger.getLogger(getClass().getName());
 
     @Override

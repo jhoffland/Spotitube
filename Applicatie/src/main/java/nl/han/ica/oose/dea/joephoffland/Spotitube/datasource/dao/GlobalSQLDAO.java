@@ -3,9 +3,9 @@ package nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
-public class GlobalDAO {
+public class GlobalSQLDAO {
     @Resource(name = "jdbc/MySQL/Spotitube")
-    protected DataSource dataSource;
+protected DataSource dataSource;
 
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;

@@ -24,8 +24,8 @@ import static org.powermock.api.mockito.PowerMockito.mockStatic;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({ UsefulFunctions.class })
 public class PlaylistTrackDAOTest extends DAOTestSetup {
-    PlaylistTrackDAO playlistTrackDAO;
-    PlaylistTrackDAO spyedPlaylistTrackDAO;
+    PlaylistTrackSQLDAO playlistTrackDAO;
+    PlaylistTrackSQLDAO spyedPlaylistTrackDAO;
     Track mockedTrack;
     List<Track> tracksList = new ArrayList<>();
 
@@ -35,7 +35,7 @@ public class PlaylistTrackDAOTest extends DAOTestSetup {
 
     @Before
     public void playlistTrackSetUp() {
-        playlistTrackDAO = new PlaylistTrackDAO();
+        playlistTrackDAO = new PlaylistTrackSQLDAO();
         playlistTrackDAO.setDataSource(dataSource);
         spyedPlaylistTrackDAO = spy(playlistTrackDAO);
         mockStatic(UsefulFunctions.class);
