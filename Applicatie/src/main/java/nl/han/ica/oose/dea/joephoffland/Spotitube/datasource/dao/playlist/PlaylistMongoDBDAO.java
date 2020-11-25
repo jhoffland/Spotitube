@@ -6,7 +6,6 @@ import com.mongodb.DBObject;
 import com.mongodb.DBCollection;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.datasource.dao.GlobalMongoDBDAO;
 import nl.han.ica.oose.dea.joephoffland.Spotitube.domain.Playlist;
-import nl.han.ica.oose.dea.joephoffland.Spotitube.exceptions.InternalServerErrorException;
 
 import javax.enterprise.inject.Default;
 import java.util.*;
